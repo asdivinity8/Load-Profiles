@@ -54,11 +54,6 @@ const LineChart = ({
     />
   );
 
-  // plotting Y axis
-  const YAxis = () => (
-    <Axis points={`${padding},${padding} ${padding},${height - padding}`} />
-  );
-
   // component for drawing the vertical guides
   const VerticalGuides = () => {
     const guideCount = numberOfVerticalGuides || dataPoints.length - 1;
@@ -111,7 +106,7 @@ const LineChart = ({
   const LabelsXAxis = () => {
     const y = height - padding + FONT_SIZE * 2;
 
-    return dataPoints.map((element, index) => {
+    return dataPoints.forEach((element, index) => {
       const x =
         (element.x / maximumXFromData) * chartWidth + padding - FONT_SIZE / 2;
         if(index % 5 === 0) {
