@@ -15,16 +15,13 @@ const styles = {
 }
 
 function App() {
-  const [selectedMenuItem, setSelectedMenuItem] = useState('Agricultural (Pork)')
+ const [selectedMenuItem, setSelectedMenuItem] = useState(LoadProfiles[0].name);
 
   const [ selectedData, setSelectedData ] = useState();
 
   const getSelectedData = (Data,value) =>  Data.find(datum=> datum.name === value);
   
 
-  useEffect(()=>{
-    setSelectedData(getSelectedData(Data,selectedMenuItem));
-  })
   useEffect(()=>{
     let selectedData =getSelectedData(Data,selectedMenuItem)
     setSelectedData(selectedData);
